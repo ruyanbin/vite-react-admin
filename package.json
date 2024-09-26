@@ -12,8 +12,9 @@
     "lint:prettier": "prettier --write --loglevel warn  \"src/**/*.{js,ts,json,tsx,jsx,css,less,scss,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:all": "npm run lint:eslint && npm run lint:prettier",
-    "prepare": "husky install",
-    "lint:lint-staged": "lint-staged"
+    "prepare": "husky",
+    "lint:lint-staged": "lint-staged",
+    "cm": "git add -A && cz && git push"
   },
   "dependencies": {
     "@voerkai18n/vite": "^2.1.10",

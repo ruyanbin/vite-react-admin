@@ -32,9 +32,7 @@ module.exports = {
         }
     ],
 		"selector-pseudo-class-no-unknown": null,
-		
-	  
-		// "plugin/declaration-block-no-ignored-properties": trueclear
+		"plugin/declaration-block-no-ignored-properties": trueclear
 	}
 };
 
