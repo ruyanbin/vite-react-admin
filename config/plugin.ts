@@ -7,9 +7,24 @@ import AntdResolver from "unplugin-antd-resolver"; // 实现 antd 组件的按�
 import viteCompression from "vite-plugin-compression"; // 使用 gzip 或者 brotli 来压缩资源
 import Inspect from "vite-plugin-inspect";
 import ViteRestart from "vite-plugin-restart"; // 通过监听文件修改，自动重启 vite 服
-// import eslintPlugin from 'vite-plugin-eslint'
+// import eslintPlugin from 'vite-plugin-eslint
+import alias from '@rollup/plugin-alias';
+import resolve from '@rollup/plugin-node-resolve';
+import path from 'path';
+
+const projectRootDir = path.resolve(__dirname);
 export const createPluginConfig = (isBuild: boolean) => {
 	const plugins = [
+		alias({
+			entries: [
+				{
+					find: 'src',
+					replacement: path.resolve(projectRootDir, 'src')
+					// OR place `customResolver` here. See explanation below.
+				}
+			]
+		}),
+		resolve(),
 		react(),
 		AutoImport({
 			imports: ["react", "react-router-dom"],

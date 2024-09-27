@@ -4,6 +4,7 @@ import { cssConfig } from "./config/cssConfig.ts"
 import { createPluginConfig } from "./config/plugin"
 import { serverConfig } from "./config/server"
 import { buildConfig } from "./config/build"
+
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
   const isBuild = mode === 'development';
@@ -15,8 +16,11 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
     css: cssConfig(),
     clearScreen: true, // 设为 false 可以避免 Vite 清屏而错过在终端中打印某些关键信息
     server: serverConfig(),
-    build: buildConfig()
+    build: buildConfig(),
+    resolve: {
+      alias: {
+        "@": "/src",
+      },
+    },
   }
-
-
 })

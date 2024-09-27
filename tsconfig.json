@@ -1,4 +1,12 @@
 {
+  "compilerOptions": {
+    "baseUrl": "./", // 以项目根目录作为基础目录
+    "paths": {
+      "@/*": ["src/*"] // @ 表示 src 目录
+      // 可以添加更多的路径映射
+    }
+  },
+  "include": ["src/**/*"],
   "files": [],
   "references": [
     { "path": "./tsconfig.app.json" },
